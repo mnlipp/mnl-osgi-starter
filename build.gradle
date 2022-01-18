@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        // maven { url 'https://jitpack.io' }
+    }
+}
+
+ext {
+    isCiBuild = System.getenv().get("CI") == 'true'
+    isJitPackBuild = System.getenv().get("JITPACK") == 'true'
+}
+
+allprojects {
+    repositories {
+        // My packages, until linked
+        // maven { url 'https://dl.bintray.com/mnlipp/jgrapes' }        
+        mavenCentral()
+        // Snapshots
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        // Experimental, not sure if this is the way to go...
+        // maven { url 'https://jitpack.io' }
+    }
+    
+    apply from: "${project.rootDir}/gradle/eclipse.gradle"
+}
+
+subprojects {
+    apply from: "${project.rootDir}/gradle/subprojects.gradle"
+}
+

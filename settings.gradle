@@ -1,0 +1,5 @@
+plugins {
+    id "biz.aQute.bnd.workspace" version "6.1.0"
+}
+
+rootProject.name = 'mnl-osgi-starter'

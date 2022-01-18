@@ -1,0 +1,18 @@
+Bundle-Name: Demo Console
+Bundle-Version: 0.0.0.-${tstamp}-SNAPSHOT
+# Bundle-Version: 0.0.0.ga
+Bundle-Copyright: Michael N. Lipp (c) 2022
+Bundle-License: http://www.gnu.org/licenses/agpl-3.0.txt
+# Bundle-Activator: org.jgrapes.ap.demo.console.Application
+#Private-Package: de.mnl.osgi.demo.console
+
+#-buildpath: \
+#	osgi.core;version=6.0.0,\
+#	osgi.annotation;version=6.0.1,\
+#	osgi.cmpn;version=6.0,\
+#	org.osgi.service.log;version=latest,\
+#	de.mnl.osgi.lf4osgi;version=latest,\
+#	de.mnl.osgi.slf4j2osgi;version=latest
+
+#-includeresource: \
+#	resources

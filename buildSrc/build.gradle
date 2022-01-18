@@ -1,0 +1,10 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // Required to avoid classpath problems with the indexed maven
+    // plugin when building with gradle.
+	runtimeOnly 'org.apache.maven:maven-model:3.6.3'
+}
+
