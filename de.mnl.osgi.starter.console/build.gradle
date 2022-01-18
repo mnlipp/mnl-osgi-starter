@@ -1,0 +1,30 @@
+// Task run.democonsole not usable due to:
+//  - https://github.com/bndtools/bnd/issues/4998
+//  - https://github.com/bndtools/bnd/issues/4997
+
+task createRunRepo(type: Copy) {
+    from project.sourceSets.main.runtimeClasspath.files
+    into new File(rootProject.buildDir, 'runRepo')
+}
+
+configurations {
+    bndCli
+}
+
+dependencies {
+    bndCli ('biz.aQute.bnd:biz.aQute.bnd:6.1.0') {
+        transitive = true
+    }
+}
+
+// Best used with "--console plain"
+task runDemoConsole(type: JavaExec) {
+    dependsOn createRunRepo
+    group = 'verification'    
+        
+    classpath = configurations.bndCli
+    main = 'aQute.bnd.main.bnd'
+    args = ['democonsole.bndrun']
+    standardInput = System.in
+}
+
